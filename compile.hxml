@@ -1,0 +1,42 @@
+# Haxe libraries that are being used within your project.
+-lib LunaTea
+# Haxe Src Directory
+-cp src
+# JS Version 
+-D js-es=6
+
+# Enable/Disable console.log -- tracing with the below line
+# --no-traces
+
+# Dead code elimination mode (full) will do it's best to remove all unnecessary code.
+-dce full
+
+# Static Code Analysis For Removing  Unnecessary Code
+-D analyzer-optimize 
+
+# Haxe Source Map
+--debug
+# Removes inlining during compilation
+# --no-inline
+# --no-opt
+# -D keep_inline_positions
+
+# RM Version for Conditional Compilation
+# -D compileMV
+
+# Note you can call an hxml file inside an hxml file for build purposes.
+# For Compiling Separate JavaScript Files
+
+# Macro to add your plugin parameters that are within a separate JS file.
+--macro macros.MacroTools.includeJsLib("./src/gemstone/Params.js")
+-main Main
+# Compiles each --next target individually with the above parameters.
+--each
+
+--next
+-js game/js/plugins/gem_coreEngine.js
+
+#--next
+# Compiles another version of the plugin for MV
+#-D compileMV
+#-js game/js/plugins/Luna_ChaptersMV.js
